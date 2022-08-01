@@ -3,7 +3,8 @@ let view = document.querySelector('.view'),
   price = document.querySelector('.price'),
   range = document.querySelector('.range'),
   switcher = document.querySelector('.switcher'),
-  toggle = document.querySelector('.switcher input');
+  toggle = document.querySelector('.switcher input'),
+  bar = document.querySelector('.bar');
 
 
 
@@ -25,64 +26,66 @@ range.addEventListener('input', update);
 function update() {
   if (toggle.checked == true) {
     switch (range.value) {
-      case '1':
+      case '0':
         price.textContent = `$ ${((4 - (4 * 0.25)) * 12)}`;
         view.textContent = 30 + 'k';
         break;
 
-      case '2':
+      case '1':
         price.textContent = `$ ${((8 - (8 * 0.25)) * 12)}`;
         view.textContent = 60 + 'k';
         break;
 
-      case '3':
+      case '2':
         price.textContent = `$ ${((16 - (16 * 0.25)) * 12)}`;
         view.textContent = 100 + 'k';
         break;
 
-      case '4':
+      case '3':
         price.textContent = `$ ${((32 - (32 * 0.25)) * 12)}`;
         view.textContent = 150 + 'k';
         break;
 
-      case '5':
+      case '4':
         price.textContent = `$ ${((64 - (64 * 0.25)) * 12)}`;
         view.textContent = 200 + 'k';
         break;
     }
   }else {
     switch (range.value) {
-      case '1':
+      case '0':
         price.textContent = '$' + 4;
         view.textContent = 30 + 'k';
       break;
       
-      case '2':
+      case '1':
         price.textContent = '$' + 8;
         view.textContent = 60 + 'k';
       break;
       
-      case '3':
+      case '2':
         price.textContent = '$' + 16;
         view.textContent = 100 + 'k';
       break;
 
-      case '4':
+      case '3':
         price.textContent = '$' + 32;
         view.textContent = 150 + 'k';
       break;
 
-      case '5':
+      case '4':
         price.textContent = '$' + 64;
         view.textContent = 200 + 'k';
       break;
     }
   }
+
+  // Bar width
+  bar.style.width = `${range.value / 4 * 100}%`;
 }
 
 
-
-
+// get nubmer from string
 function getNum(str) {
   return +[...str.split('.')[0]].filter(x => isNaN(x) === false).join('');
 }

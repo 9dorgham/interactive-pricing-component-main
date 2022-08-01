@@ -82,6 +82,16 @@ main .views {
 }
 .progress .progress-bar {
   width: 100%;
+  position: relative;
+}
+.progress .progress-bar .bar {
+  position: absolute;
+  bottom: 0.4em;
+  left: 0%;
+  border-radius: 0.5em;
+  background-color: var(--sc);
+  height: 0.4em;
+  width: 50%;
 }
 [type="range"] {
   width: 100%;
@@ -101,6 +111,8 @@ main .views {
   border-radius: 50%;
   background: url(../images/icon-slider.svg) no-repeat center;
   background-color: var(--Sc);
+  position: relative;
+  z-index: 999;
 }
 [type="range"]::-webkit-slider-thumb:hover {
   background: url(../images/icon-slider.svg) no-repeat center;
